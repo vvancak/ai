@@ -22,53 +22,47 @@ namespace StateSpaceSearch
         {
             InitializeComponent();
 
-			//ZDE VYBERTE PROBLEM:
+            //ZDE VYBERTE PROBLEM:
 
-			//Fifteen Puzzle:
-			problemInstance = new FifteenPuzzleProblem();
-			visualizer = new FifteenPuzzleVisualizer();
-			//problemInstance.readFromFile("FP1.txt");
-			problemInstance.readFromFile("FP2.txt");
-			//problemInstance.readFromFile("FP3.txt");
-
-
-			////TSP:
-			//problemInstance = new TSPProblem();
-			//visualizer = new TSPVisualizer();
-			//problemInstance.readFromFile("TSP1.txt");
-			////problemInstance.readFromFile("TSP2.txt");
+            //Fifteen Puzzle:
+            //problemInstance = new FifteenPuzzleProblem();
+            //visualizer = new FifteenPuzzleVisualizer();
+            //problemInstance.readFromFile("FP1.txt");
+            //problemInstance.readFromFile("FP2.txt");
+            //problemInstance.readFromFile("FP3.txt");
 
 
-			////Rubik's cube:
-			//problemInstance = new RubicsCubeProblem();
-			//visualizer = new CubeVisualizer();
-			//problemInstance.readFromFile("2");
-			////problemInstance.readFromFile("3");
+            ////TSP:
+            problemInstance = new TSPProblem();
+            visualizer = new TSPVisualizer();
+            problemInstance.readFromFile("TSP1.txt");
+            //problemInstance.readFromFile("TSP2.txt");
 
 
-			//zbytek neni potreba menit
+            ////Rubik's cube:
+            //problemInstance = new RubicsCubeProblem();
+            //visualizer = new CubeVisualizer();
+            //problemInstance.readFromFile("2");
+            //problemInstance.readFromFile("3");
 
 
+            //zbytek neni potreba menit
 
-
-
-
-
-
-			visualizer.init(pictureBox1);
+            visualizer.init(pictureBox1);
             currentState = problemInstance.initialState;
             visualizer.visualize(currentState);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-			//ZDE NASTAVTE SVUJ SearchEngine
+            //ZDE NASTAVTE SVUJ SearchEngine
 
-			eng = new SearchEngine();
+            //eng = new SearchEngine();
+            //eng = new DFS();
+            //eng = new BFS();
+            eng = new IDS();
 
-
-			eng.search(currentState);
-            
+            eng.search(currentState);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -88,8 +82,5 @@ namespace StateSpaceSearch
             visualizer.visualize(eng.result[resultIndex]);
             resultIndex++;
         }
-
-
-
     }
 }
