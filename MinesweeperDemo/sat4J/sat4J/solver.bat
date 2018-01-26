@@ -1,0 +1,1 @@
+java -jar org.sat4j.core.jar problem.txt
